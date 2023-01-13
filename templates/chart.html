@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+    <script>
+        // jquery function
+        $(document).ready(function () {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [{%for data in qs%}'{{data.transactionAt}}',{%endfor%}],
+                    datasets: [{
+                        label: 'Bitcoin Price',
+                        data: [{%for data in qs%} '{{data.price}}', {%endfor%}],
+                        backgroundColor: [],
+                        borderColor: [],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock scripts %}
+
+{% block content %}
+    <canvas id="myChart" width="400" height="100"></canvas>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+{% load crispy_forms_tags %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <title>List of Coin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://unpkg.com/htmx.org@1.7.0"></script>
+    <link href="{% static 'admin/css/base.css' %}" rel="stylesheet"/>
+    <link href="{% static 'admin/css/forms.css' %}" rel="stylesheet"/>
+    <link href="{% static 'admin/css/changelists.css' %}" rel="stylesheet"/>
+    <link href="{% static 'admin/css/nav_sidebar.css' %}" rel="stylesheet"/>
+    <link href="{% static 'admin/css/responsive.css' %}" rel="stylesheet"/>
+
+</head>
+<body>
+<form class="w-25">
+    {% crispy filter.form %}
+</form>
+{% render_table table 'django_tables2/bootstrap.html' %}
+</body>
+</html>

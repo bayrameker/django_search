@@ -1,0 +1,8 @@
+requests
+django_tables2
+django_filter
+django-crispy-forms
+django-htmx
+django-bootstrap3
+django-bootstrap4
+django_bootstrap5
